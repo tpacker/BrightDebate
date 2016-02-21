@@ -1,15 +1,22 @@
 <head>
-  <title>BrightDebate (BETA)</title>
+	<title>BrightDebate (BETA)</title>
 </head>
 
 <body>
-  <h1>Welcome to BrightDebate (BETA)!</h1>
+	<h1>Welcome to BrightDebate (BETA)!</h1>
 
-  {{> hello}}
+	{{> hello}}
+
+	{{> footer}}
 </body>
 
 
 <template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+	<button>Click Me</button>
+	<p>You've pressed the button {{counter}} times.</p>
+</template>
+
+
+<template name="footer">
+	<p>Please email your suggestions to <a href="mailto:{{feedbackEmail}}?Subject=BrightDebate.com%20Feedback" target="_top">This Email Address</a>.</p>
 </template>
