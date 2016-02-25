@@ -4,16 +4,36 @@
 
 <body>
 	<h1>Welcome to BrightDebate (BETA)!</h1>
-
+	
 	{{> hello}}
+	
+	<div class="container">
+		<header>
+			<h2>Proposition List</h2>
+			<form class="new-proposition">
+				<input type="text" name="text" placeholder="Enter new proposition" />
+			</form>
+		</header>
+		<ul>
+			{{#each propositions}}
+				{{> proposition}}
+			{{/each}}
+		</ul>
+	</div>
 
 	{{> footer}}
 </body>
 
 
+
 <template name="hello">
 	<button>Click Me</button>
 	<p>You've pressed the button {{counter}} times.</p>
+</template>
+
+
+<template name="proposition">
+	<li>{{text}}</li>
 </template>
 
 

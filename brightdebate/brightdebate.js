@@ -1,5 +1,6 @@
 //  Mongo collections
 GlobalData = new Mongo.Collection("global-data");
+Propositions = new Mongo.Collection("propositions");
 
 // Initialize DB
 Meteor.startup(function()
@@ -17,6 +18,7 @@ if (Meteor.isClient)
 	// counter starts at 0
 	Session.setDefault('counter', 0);
 
+	
 	Template.hello.helpers
 	({
 		counter: function () 
@@ -31,6 +33,37 @@ if (Meteor.isClient)
 		{
 			// increment the counter when button is clicked
 			Session.set('counter', Session.get('counter') + 1);
+		}
+	});
+	
+	
+	Template.body.helpers
+	({
+		propositions: function()
+		{
+			return Propositions.find({});
+		}
+	});
+	
+	Template.body.events
+	({
+		"submit .new-proposition": function(event)
+		{
+			// Prevent default browser form submit
+			event.preventDefault();
+			
+			// Get value from form element
+			var text = event.target.text.value;
+
+			// Insert a task into the collection
+			Propositions.insert
+			({
+				text: text,
+				createdAt: new Date() // current time
+			});
+
+			// Clear form
+			event.target.text.value = "";
 		}
 	});
 	
