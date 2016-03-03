@@ -5,13 +5,39 @@
 <body>
 	<h1>Welcome to BrightDebate (BETA)!</h1>
 	
-	{{> hello}}
+	{{> clickCounter}}
 	
 	<div class="container">
 		<header>
+			<h2>Tags</h2>
+			<form class="new-tag">
+				<input type="text" name="text" placeholder="tag" />
+			</form>
+		</header>
+		<ul>
+			{{#each tags}}
+				{{> tag}}
+			{{/each}}
+		</ul>
+		
+		<header>
+			<h2>Links</h2>
+			<form class="new-link">
+				<input type="text" name="title" placeholder="link title" />
+				<input type="text" name="url" placeholder="link URL" />
+				<input type="submit" value="Add Link">
+			</form>
+		</header>
+		<ul>
+			{{#each links}}
+				{{> link}}
+			{{/each}}
+		</ul>
+		
+		<header>
 			<h2>Proposition List</h2>
 			<form class="new-proposition">
-				<input type="text" name="text" placeholder="Enter new proposition" />
+				<input type="text" name="text" placeholder="proposition" />
 			</form>
 		</header>
 		<ul>
@@ -26,9 +52,19 @@
 
 
 
-<template name="hello">
+<template name="clickCounter">
 	<button>Click Me</button>
 	<p>You've pressed the button {{counter}} times.</p>
+</template>
+
+
+<template name="tag">
+	<li>{{text}}</li>
+</template>
+
+
+<template name="link">
+	<li><a href='{{url}}'>{{title}}</a></li>
 </template>
 
 
