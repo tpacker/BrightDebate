@@ -5,9 +5,11 @@
 <body>
 	<h1>Welcome to BrightDebate (BETA)!</h1>
 	
-	{{> clickCounter}}
-	
 	<div class="container">
+		<header>
+			{{> clickCounter}}
+		</header>
+
 		<header>
 			<h2>Tags</h2>
 			<form class="new-tag">
@@ -53,23 +55,33 @@
 
 
 <template name="clickCounter">
-	<button>Click Me</button>
+	<button>Click me, Anna, please!</button>
 	<p>You've pressed the button {{counter}} times.</p>
 </template>
 
 
 <template name="tag">
-	<li>{{text}}</li>
+	<li class="{{#if checked}}checked{{/if}}">
+		<button class="delete">&times;</button>
+		{{text}}
+	</li>
 </template>
 
 
 <template name="link">
-	<li><a href='{{url}}'>{{title}}</a></li>
+	<li class="{{#if checked}}checked{{/if}}">
+		<button class="delete">&times;</button>
+		<a href='{{url}}'>{{title}}</a>
+	</li>
 </template>
 
 
 <template name="proposition">
-	<li>{{text}}</li>
+	<li class="{{#if checked}}checked{{/if}}">
+		<button class="delete">&times;</button>
+		<input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+		<span class="text">{{text}}</span>
+	</li>
 </template>
 
 
