@@ -7,6 +7,14 @@
 	
 	<div class="container">
 		<header>
+			{{> loginButtons}}
+			<br />
+			{{#if currentUser}}
+				Hello, {{currentUser.username}}.  You are logged in.  
+			{{/if}}
+		</header>
+
+		<header>
 			{{> clickCounter}}
 		</header>
 
@@ -63,7 +71,7 @@
 <template name="tag">
 	<li class="{{#if checked}}checked{{/if}}">
 		<button class="delete">&times;</button>
-		{{text}}
+		<span class="text"><strong>{{username}}</strong> - {{text}}</span>
 	</li>
 </template>
 

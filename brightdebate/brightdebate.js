@@ -74,7 +74,9 @@ if (Meteor.isClient)
 			Tags.insert
 			({
 				text: text,
-				createdAt: new Date() // current time
+				createdAt: new Date(), 
+				owner: Meteor.userId(),
+				username: Meteor.user().username
 			});
 			
 			// Clear form
@@ -94,7 +96,9 @@ if (Meteor.isClient)
 			({
 				title: title,
 				url: url,
-				createdAt: new Date() // current time
+				createdAt: new Date(), 
+				owner: Meteor.userId(),
+				username: Meteor.user().username
 			});
 			
 			// Clear form
@@ -113,7 +117,9 @@ if (Meteor.isClient)
 			Propositions.insert
 			({
 				text: text,
-				createdAt: new Date() // current time
+				createdAt: new Date(), 
+				owner: Meteor.userId(),
+				username: Meteor.user().username
 			});
 
 			// Clear form
@@ -165,6 +171,12 @@ if (Meteor.isClient)
 			console.log(GlobalData.findOne({name: 'feedback-email'}).value);
 			return GlobalData.findOne({name: 'feedback-email'}).value;
 		}	
+	});
+	
+	
+	Accounts.ui.config
+	({
+		passwordSignupFields: "USERNAME_ONLY"
 	});
 }
 
