@@ -74,7 +74,7 @@ if (Meteor.isClient)
 			Tags.insert
 			({
 				text: text,
-				createdAt: new Date(), 
+				createdAt: new Date(),
 				owner: Meteor.userId(),
 				username: Meteor.user().username
 			});

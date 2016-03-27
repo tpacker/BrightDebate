@@ -28,9 +28,8 @@ body
 
 header 
 {
-	background: #d2edf4;
-	background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
-	padding: 20px 15px 15px 15px;
+	background-image: linear-gradient(to bottom, #CCDDFF, #FFCCAA 100%);
+	padding: 5px 5px 5px 5px;
 	position: relative;
 }
 
@@ -43,30 +42,39 @@ h1
 {
 	font-size: 1.5em;
 	margin: 0;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
+	display: inline-block;
+	margin-right: 1em;
+}
+
+h2 
+{
+	margin: 0;
+	margin-bottom: 5px;
 	display: inline-block;
 	margin-right: 1em;
 }
 
 form 
 {
-	margin-top: 10px;
-	margin-bottom: -10px;
+	margin-top: 5px;
+	margin-bottom: -5px;
 	position: relative;
 }
 
-.new-task input 
+.new-tag input 
 {
 	box-sizing: border-box;
-	padding: 10px 0;
+	/* padding: 10px 0;
 	background: transparent;
-	border: none;
+	border: none; */
+	size: 8;
 	width: 100%;
-	padding-right: 80px;
+	padding-right: 5px;
 	font-size: 1em;
 }
 
-.new-task input:focus
+.new-tag input:focus
 {
 	outline: 0;
 }
@@ -92,13 +100,13 @@ li
 {
 	position: relative;
 	list-style: none;
-	padding: 15px;
+	padding: 5px;
 	border-bottom: #eee solid 1px;
 }
 
 li .text 
 {
-	margin-left: 10px;
+	margin-left: 5px;
 }
 
 li.checked 
@@ -140,9 +148,34 @@ header .hide-completed
 		clear: both;
 	}
 
-	.new-task input 
+	.new-tag input 
 	{
 		padding-bottom: 5px;
 	}
 }
 
+
+/* LinkRanker */
+
+#wrapper
+{
+	margin-left: 100px;
+}
+
+#tag-column
+{
+	float: left;
+	width: 100px;
+	margin-left: -100px;
+}
+
+#link-column
+{
+	float: right;
+	width: 100%;
+}
+
+#cleared 
+{
+	clear: both;
+}

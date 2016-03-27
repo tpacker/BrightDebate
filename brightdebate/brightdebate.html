@@ -18,32 +18,40 @@
 			{{> clickCounter}}
 		</header>
 
-		<header>
-			<h2>Tags</h2>
-			<form class="new-tag">
-				<input type="text" name="text" placeholder="tag" />
-			</form>
-		</header>
-		<ul>
-			{{#each tags}}
-				{{> tag}}
-			{{/each}}
-		</ul>
-		
-		<header>
-			<h2>Links</h2>
-			<form class="new-link">
-				<input type="text" name="title" placeholder="link title" />
-				<input type="text" name="url" placeholder="link URL" />
-				<input type="submit" value="Add Link">
-			</form>
-		</header>
-		<ul>
-			{{#each links}}
-				{{> link}}
-			{{/each}}
-		</ul>
-		
+		<div id="wrapper">
+			<div id="tag-column">
+				<header>
+					<h2>Tags</h2>
+					<form class="new-tag">
+						<input type="text" name="text" placeholder="new tag" />
+					</form>
+				</header>
+				<ul>
+					{{#each tags}}
+						{{> tag}}
+					{{/each}}
+				</ul>
+			</div>
+
+			<div id="link-column">
+				<header>
+					<h2>Links</h2>
+					<form class="new-link">
+						<input type="text" name="title" placeholder="new link title" />
+						<input type="text" name="url" placeholder="new link URL" />
+						<input type="submit" value="Add Link">
+					</form>
+				</header>
+				<ul>
+					{{#each links}}
+						{{> link}}
+					{{/each}}
+				</ul>
+			</div>
+			
+			<div id="cleared"></div>
+		</div>
+
 		<header>
 			<h2>Proposition List</h2>
 			<form class="new-proposition">
@@ -71,7 +79,8 @@
 <template name="tag">
 	<li class="{{#if checked}}checked{{/if}}">
 		<button class="delete">&times;</button>
-		<span class="text"><strong>{{username}}</strong> - {{text}}</span>
+<!-- 		<span class="text"><strong>{{username}}</strong> - {{text}}</span>
+ -->		<span class="text">{{text}}</span>
 	</li>
 </template>
 
